@@ -14,7 +14,7 @@ while True:
 
         jum = int(input("Masukkan Jumlah Siswa: "))
         anggota = int(input("Masukkan jumlah Anggota Kelompok: "))
-        rage = anggota
+        index = anggota
 
         if jum >= anggota:
             # Jarak Input dan Output
@@ -24,7 +24,7 @@ while True:
             nomorAbsen =  functions.randomNomorAbsen(jum)
 
             # Membuat kelompok berdasarkan absen
-            result = functions.getKelompok(anggota, rage, nomorAbsen)
+            result = functions.getNomorAbsenKelompok(anggota, index, nomorAbsen)
 
             # Looping list Result dan menampilkan output program
             for i in range(0, len(result)):
@@ -42,8 +42,29 @@ while True:
             print("Input Salah!")
 
     elif pilih == "2":
-        print("Coming Soon! Versi 2.0")
-        break
+        namaSiswa = input("Masukkan nama-nama siswa (Ivan, Agus, Asep): ")
+        anggota = int(input("Masukkan jumlah Anggota Kelompok: "))
+        
+        index = anggota
+        listSiswa = namaSiswa.split(", ")
+
+        # Membuat list random yang berisi nama siswa
+        randomSiswa = functions.randomSiswa(listSiswa)
+
+        # Membuat kelompok berdasarkan list random yang berisi nama siswa
+        result = functions.getNamaSiswaKelompok(anggota, index, randomSiswa)
+
+        for i in range(0, len(result)):
+            siswa = result[i]
+            
+            print("Kelompok", i+1)
+            print("Nama Anggota :", end=", ")
+            
+            for item in siswa:
+                print(item, end=", ")
+            
+            print("\r")
+            print("======================")
 
     elif pilih == "3":
         break
