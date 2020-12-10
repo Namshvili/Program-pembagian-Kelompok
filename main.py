@@ -1,10 +1,10 @@
-import random
-import numpy as np
+import functions
 
 print("Program Bagi Kelompok")
 print("Bagi kelompok Berdasarkan : ")
 print("[1] Nomor Absen")
 print("[2] Input Nama")
+print("[3] Keluar")
 
 pilih = input("Masukkan Pilihan: ")
 
@@ -13,14 +13,13 @@ if pilih == "1":
     anggota = int(input("Masukkan jumlah Anggota Kelompok: "))
     rage = anggota
 
-    randomList = list(np.random.permutation(np.arange(1,jum+1))[:jum])   
-    result = []
-    
-    for i in range(0, len(randomList), rage):
-        n = randomList[i:rage]
-        result.append(n)
-        rage+=anggota
+    # Membuat elemen list no absen random 
+    nomorAbsen =  functions.randomNomorAbsen(jum)
 
+    # Membuat kelompok berdasarkan absen
+    result = functions.getKelompok(anggota, rage, nomorAbsen)
+
+    # Looping list Result dan menampilkan output program
     for i in range(0, len(result)):
         nomorAbsen = result[i]
         
@@ -32,5 +31,7 @@ if pilih == "1":
         
         print("\r")
         print("======================")
+elif pilih == "2":
+    print("Coming Soon! Versi 2.0")
 else:
-    pass
+    print("Pilihan tidak tersedia!")
