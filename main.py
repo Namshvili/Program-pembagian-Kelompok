@@ -18,10 +18,13 @@ while True:
         if jum >= anggota:
             # Jarak Input dan Output
             print("\r")
+
             # Membuat elemen list no absen random 
             nomorAbsen =  functions.randomNomorAbsen(jum)
+
             # Membuat kelompok berdasarkan absen
             result = functions.getNomorAbsenKelompok(anggota, index, nomorAbsen)
+
             # Looping list Result dan menampilkan output program
             for i in range(0, len(result)):
                 nomorAbsen = result[i]               
@@ -29,37 +32,55 @@ while True:
                 print("Nomor Absen :", end=" ")
                 
                 for item in nomorAbsen:
-                    print(item, end=" ")               
+                    print(item, end=" ")   
+
                 print("\r")
                 print("======================")
         else:
             print("Input Salah!")
+
     elif pilih == "2":
         namaSiswa = input("Masukkan nama-nama siswa (Ivan, Agus, Asep): ")
         anggota = int(input("Masukkan jumlah Anggota Kelompok: "))
         
         index = anggota
         listSiswa = namaSiswa.split(", ")
+
         # Membuat list random yang berisi nama siswa
         randomSiswa = functions.randomSiswa(listSiswa)
+
         # Membuat kelompok berdasarkan list random yang berisi nama siswa
         result = functions.getNamaSiswaKelompok(anggota, index, randomSiswa)
+
+        # Looping list Result dan menampilkan output program
         for i in range(0, len(result)):
-            siswa = result[i]          
+            siswa = result[i]
+            r = len(siswa)
+                     
             print("Kelompok", i+1)
-            print("Nama Anggota :", end=", ")
+            print("Nama Anggota :", end=" ")
             
             for item in siswa:
-                print(item, end=", ")          
+                lastElement = siswa[r-1]
+
+                if item != lastElement:
+                    print(item, end=", ")
+                else:
+                    print(item, end=".")
+
             print("\r")
             print("======================")
+
     elif pilih == "3":
         break
+
     else:
         print("Pilihan tidak tersedia!")
-        break  
+        break
+
     # Jarak
     print("\r")
+
     # Konfirmasi 
     confirm = input('Mau coba lagi? [Y/T] : ')
     if confirm == "t" or confirm == "T":
@@ -69,5 +90,6 @@ while True:
     else:
         print('Pilihan tidak tersedia!')
         break
+
 # Selesai
 print("Terima kasih sudah mencoba!")
