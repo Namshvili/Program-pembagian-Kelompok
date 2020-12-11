@@ -2,7 +2,13 @@ import random
 import numpy as np
 
 def randomNomorAbsen(jum):
-    return list(np.random.permutation(np.arange(1,jum+1))[:jum])
+    randomList = list(np.random.permutation(np.arange(1,jum+1))[:jum])
+    random.shuffle(randomList)
+    random.shuffle(randomList)
+    random.shuffle(randomList)
+    random.shuffle(randomList)
+    random.shuffle(randomList)
+    return randomList
 
 def getNomorAbsenKelompok(anggota, index, NomorAbsen):
     kelompok = []
